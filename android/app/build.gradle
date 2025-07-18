@@ -1,0 +1,38 @@
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services' // Firebase configuration (if you're using Firebase)
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.chat_app"
+    compileSdk = 35  // Make sure to match the compileSdk to a higher version
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17  // Set Java compatibility to 17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"  // Set Kotlin JVM target to 17 for compatibility with Java 17
+    }
+
+    defaultConfig {
+        applicationId = "com.example.chat_app"
+        minSdk = 21
+        targetSdk = 35
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug  // Setup release signing config if required
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
